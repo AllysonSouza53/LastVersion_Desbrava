@@ -1,5 +1,6 @@
 from kivy.lang import Builder
 from kivymd.app import MDApp
+from Controllers.LoginController import LoginController
 
 class MyApp(MDApp):
     def build(self):
@@ -25,6 +26,12 @@ class MyApp(MDApp):
         if self.root:
             self.root.current = "CadastroProfissional1"
 
-
+    def LoginProfissionais_Click(self):
+        if self.root:
+            self.controle = LoginController(self.root)
+            if self.controle.Sessao():
+                self.root.current = "PerfilProfissional"
+        else:
+            print("root ainda não existe")
 
 MyApp().run()
