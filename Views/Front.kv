@@ -1,0 +1,328 @@
+MDScreenManager:
+    TelaEscolha:
+        name: "Escolha"
+    TelaLoginAluno:
+        name: "LoginAluno"
+    TelaLoginProfissional:
+        name:"LoginProfissional"
+    TelaCadastroProfissional1:
+        name:"CadastroProfissional1"
+
+
+<TelaEscolha@MDScreen>:
+    MDFloatLayout:
+        canvas.before:
+            # Desenha o fundo
+            Color:
+                rgba: 1, 1, 1, 1
+            Rectangle:
+                source: 'Imagens/Fundo.png'
+                size: self.size
+                pos: self.pos
+
+            # Desenha o retângulo com bordas arredondadas
+            Color:
+                rgba: 0, 0, 0, 0.5
+            RoundedRectangle:
+                size: self.width * 0.3, self.height * 0.5
+                pos: self.center_x - self.width * 0.15, self.center_y - self.height * 0.25
+                radius: [20]
+
+        canvas:
+            # Desenha o logo
+            Color:
+                rgba: 1, 1, 1, 1
+            Rectangle:
+                source: 'Imagens/Logo.png'
+                size: 150, 150
+                pos: self.center_x - self.width * 0.48, self.center_y - self.height * -0.27
+
+        MDRaisedButton:
+            text: 'Aluno'
+            pos_hint: {'center_x': 0.56, 'center_y': 0.5}
+            size_hint_x: 0.1
+            size_hint_y: 0.08
+            md_bg_color: 0.0, 0.4, 0.0, 1
+            font_size: "18sp"
+            bold: True
+            on_release: app.irLoginAluno()
+            line_color: 1, 1, 1, 1  # Cor da borda (verde)
+
+        MDRaisedButton:
+            text: 'Profissional'
+            pos_hint: {'center_x': 0.44, 'center_y': 0.5}
+            size_hint_x: 0.1
+            size_hint_y: 0.08
+            md_bg_color: 0.0, 0.4, 0.0, 1
+            font_size: "18sp"
+            bold: True
+            on_release: app.irLoginProfissional()
+            line_color: 1, 1, 1, 1
+
+
+<TelaLoginAluno@MDScreen>:
+    MDFloatLayout:
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1
+            Rectangle:
+                source: 'Imagens/Fundo.png'
+                size: self.size
+                pos: self.pos
+
+            Color:
+                rgba: 0, 0, 0, 0.5
+            RoundedRectangle:
+                size: self.width * 0.3, self.height * 0.4
+                pos: self.center_x - self.width * -0.15, self.center_y - self.height * 0.07
+                radius: [20]
+
+        canvas:
+            Color:
+                rgba: 1, 1, 1, 1
+            Rectangle:
+                source: 'Imagens/Logo.png'
+                size: 150, 150
+                pos: self.center_x - self.width * 0.48, self.center_y - self.height * -0.27
+
+        MDRectangleFlatIconButton:
+            text: "Voltar"
+            icon: "arrow-left"
+            md_bg_color: 0.0, 0.4, 0.0, 1
+            font_size: "18sp"
+            bold: True
+            on_release: app.irEscolha()
+            size_hint: None, None
+            size: "200dp", "50dp"
+            pos_hint: {"right": 0.98, "top": 0.98}
+            text_color: 1, 1, 1, 1
+            icon_color: 1, 1, 1, 1
+            line_color: 1, 1, 1, 1
+
+        MDLabel:
+            text:'Bem Vindo, Aluno!'
+            color:1,1,1,1
+            font_size: "24sp"
+            bold: True
+            pos_hint: {'center_x': 1.24, 'center_y': 0.8}
+
+        MDLabel:
+            text:'Nome:'
+            color:1,1,1,1
+            font_size: "16sp"
+            bold: True
+            pos_hint: {'center_x': 1.18, 'center_y': 0.732}
+
+        MDTextField:
+            hint_text: "Digite Seu Nome"
+            mode: "round"
+            size_hint_x: 0.25
+            pos_hint: {"center_x":0.8, 'center_y':0.7}
+            line_color_normal: 0, 0, 0, 0.5
+            line_color_focus: 0.72, 0.53, 0.04, 1
+            text_color_normal:0,0,0,1
+            text_color_focus:0,0,0,1
+            cursor_color:0,0,0,1
+
+        MDLabel:
+            text:'RA:'
+            color:1,1,1,1
+            font_size: "16sp"
+            bold: True
+            pos_hint: {'center_x': 1.18, 'center_y': 0.632}
+
+        MDTextField:
+            hint_text: "Digite seu Registro do Aluno"
+            mode: "round"
+            size_hint_x: 0.25
+            pos_hint: {"center_x":0.8, 'center_y':0.6}
+            line_color_normal: 0, 0, 0, 0.5
+            line_color_focus: 0.72, 0.53, 0.04, 1
+            text_color_normal:0,0,0,1
+            text_color_focus:0,0,0,1
+            cursor_color:0,0,0,1
+
+        MDRaisedButton:
+            text: 'Entrar'
+            pos_hint: {'center_x': 0.8, 'center_y': 0.5}
+            size_hint_x: 0.06
+            size_hint_y: 0.06
+            md_bg_color: 0.0, 0.4, 0.0, 1
+            font_size: "18sp"
+            bold: True
+            on_release: app.irLoginProfissional()
+            line_color: 1, 1, 1, 1
+
+
+
+<TelaLoginProfissional@MDScreen>:
+    MDFloatLayout:
+        canvas.before:
+            # Desenha o fundo
+            Color:
+                rgba: 1, 1, 1, 1
+            Rectangle:
+                source: 'Imagens/Fundo.png'
+                size: self.size
+                pos: self.pos
+
+            # Desenha o retângulo com bordas arredondadas
+            Color:
+                rgba: 0, 0, 0, 0.5
+            RoundedRectangle:
+                size: self.width * 0.3, self.height * 0.5
+                pos: self.center_x - self.width * 0.15, self.center_y - self.height * 0.25
+                radius: [20]
+
+        canvas:
+            # Desenha o logo
+            Color:
+                rgba: 1, 1, 1, 1
+            Rectangle:
+                source: 'Imagens/Logo.png'
+                size: 150, 150
+                pos: self.center_x - self.width * 0.48, self.center_y - self.height * -0.27
+
+        MDRectangleFlatIconButton:
+            text: "Voltar"
+            icon: "arrow-left"
+            md_bg_color: 0.0, 0.4, 0.0, 1
+            font_size: "18sp"
+            bold: True
+            on_release: app.irEscolha()
+            size_hint: None, None
+            size: "200dp", "50dp"
+            pos_hint: {"right": 0.98, "top": 0.98}
+            text_color: 1, 1, 1, 1
+            icon_color: 1, 1, 1, 1
+            line_color: 1, 1, 1, 1
+
+        MDLabel:
+            text:'Bem Vindo, Profissional!'
+            color:1,1,1,1
+            font_size: "24sp"
+            bold: True
+            pos_hint: {'center_x': 0.92, 'center_y': 0.7}
+
+        MDLabel:
+            text:'Usuario:'
+            color:1,1,1,1
+            font_size: "16sp"
+            bold: True
+            pos_hint: {'center_x': 0.88, 'center_y': 0.632}
+
+        MDTextField:
+            hint_text: "Digite Seu Usuario"
+            mode: "round"
+            size_hint_x: 0.25
+            pos_hint: {"center_x":0.5, 'center_y':0.6}
+            line_color_normal: 0, 0, 0, 0.5
+            line_color_focus: 0.72, 0.53, 0.04, 1
+            text_color_normal:0,0,0,1
+            text_color_focus:0,0,0,1
+            cursor_color:0,0,0,1
+
+        MDLabel:
+            text:'Senha:'
+            color:1,1,1,1
+            font_size: "16sp"
+            bold: True
+            pos_hint: {'center_x': 0.88, 'center_y': 0.532}
+
+        MDTextField:
+            hint_text: "Digite sua Senha"
+            mode: "round"
+            size_hint_x: 0.25
+            pos_hint: {"center_x":0.5, 'center_y':0.5}
+            line_color_normal: 0, 0, 0, 0.5
+            line_color_focus: 0.72, 0.53, 0.04, 1
+            text_color_normal:0,0,0,1
+            text_color_focus:0,0,0,1
+            cursor_color:0,0,0,1
+
+        MDRaisedButton:
+            text: 'Sem conta ainda! Cadastra-se'
+            pos_hint: {'center_x': 0.5, 'center_y': 0.35}
+            size_hint_x: 0.06
+            size_hint_y: 0.06
+            md_bg_color: 0, 0, 0, 0
+            font_size: "12sp"
+            on_release: app.irCadastroProfissional1()
+
+        MDRaisedButton:
+            text: 'Entrar'
+            pos_hint: {'center_x': 0.5, 'center_y': 0.4}
+            size_hint_x: 0.06
+            size_hint_y: 0.06
+            md_bg_color: 0.0, 0.4, 0.0, 1
+            font_size: "18sp"
+            bold: True
+            on_release: app.irLoginProfissional()
+            line_color: 1, 1, 1, 1
+
+<TelaCadastroProfissional1@MDScreen>:
+    MDFloatLayout:
+        canvas.before:
+            # Desenha o fundo
+            Color:
+                rgba: 1, 1, 1, 1
+            Rectangle:
+                source: 'Imagens/Fundo.png'
+                size: self.size
+                pos: self.pos
+
+            # Desenha o retângulo com bordas arredondadas
+            Color:
+                rgba: 0, 0, 0, 0.5
+            RoundedRectangle:
+                size: self.width * 0.3, self.height * 0.5
+                pos: self.center_x - self.width * 0.15, self.center_y - self.height * 0.25
+                radius: [20]
+
+        canvas:
+            # Desenha o logo
+            Color:
+                rgba: 1, 1, 1, 1
+            Rectangle:
+                source: 'Imagens/Logo.png'
+                size: 150, 150
+                pos: self.center_x - self.width * 0.48, self.center_y - self.height * -0.27
+
+        MDRectangleFlatIconButton:
+            text: "Voltar"
+            icon: "arrow-left"
+            md_bg_color: 0.0, 0.4, 0.0, 1
+            font_size: "18sp"
+            bold: True
+            on_release: app.irEscolha()
+            size_hint: None, None
+            size: "200dp", "50dp"
+            pos_hint: {"right": 0.98, "top": 0.98}
+            text_color: 1, 1, 1, 1
+            icon_color: 1, 1, 1, 1
+            line_color: 1, 1, 1, 1
+
+        MDLabel:
+            text:'Cadastre-se um Profissional!'
+            color:1,1,1,1
+            font_size: "24sp"
+            bold: True
+            pos_hint: {'center_x': 0.91, 'center_y': 0.7}
+
+        MDLabel:
+            text:'CPF:'
+            color:1,1,1,1
+            font_size: "16sp"
+            bold: True
+            pos_hint: {'center_x': 0.88, 'center_y': 0.632}
+
+        MDTextField:
+            hint_text: "Digite Seu Usuario"
+            mode: "round"
+            size_hint_x: 0.25
+            pos_hint: {"center_x":0.5, 'center_y':0.6}
+            line_color_normal: 0, 0, 0, 0.5
+            line_color_focus: 0.72, 0.53, 0.04, 1
+            text_color_normal:0,0,0,1
+            text_color_focus:0,0,0,1
+            cursor_color:0,0,0,1
